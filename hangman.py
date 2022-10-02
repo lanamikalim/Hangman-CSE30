@@ -57,6 +57,12 @@ def generate_public_word(wordSize):
         publicWord.append('__' )
     return publicWord
 
+def update_public_word(currentWord, secretWord, newLetter):
+    for i in range(len(secretWord)):
+        if secretWord[i] == newLetter:
+            currentWord[i] = newLetter
+    return currentWord
+
 
 if __name__ == '__main__' :
 
@@ -99,6 +105,12 @@ if __name__ == '__main__' :
             print("Letters chosen:",lettersChosen)
             print(publicWord)
             print("lives:",lives)
+
+            inputLetter = input()
+            update_public_word(publicWord,secretWord,inputLetter)
+            print("secret word is",secretWord)
+            print(update_public_word(publicWord,secretWord,inputLetter))
+
             gameRunning = False
         
         isPlaying = False
