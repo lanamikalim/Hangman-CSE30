@@ -63,10 +63,23 @@ if __name__ == '__main__' :
     # START MAIN LOOP (OUTER PROGRAM LOOP)
 
     while isPlaying == True:
-         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
-         wordSize = int(input())
-         print(generate_word(wordSize))
-         isPlaying = False
+        import random
+        print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
+        if input() == "":
+            wordSize = random.randint(3,12)
+        else:
+            wordSize = int(input())
+        print('The word size is set to ', wordSize)
+        secretWord = generate_word(wordSize)
+
+        print('Please choose a number of lives [1 – 10, default 5]:')
+        if input() == "":
+            lives = 5
+        else:
+            lives = int(input())
+        print("You have ",lives," lives")
+        
+        isPlaying = False
 
 
     
