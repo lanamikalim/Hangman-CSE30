@@ -63,10 +63,10 @@ if __name__ == '__main__' :
     # START MAIN LOOP (OUTER PROGRAM LOOP)
 
     while isPlaying == True:
-        # print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
-        # wordSize = input()
-        print(generate_word(4))
-        isPlaying = False
+         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
+         wordSize = int(input())
+         print(generate_word(wordSize))
+         isPlaying = False
 
 
     
