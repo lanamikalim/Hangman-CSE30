@@ -47,9 +47,16 @@ def get_game_options () :
 
 # MAIN
 
-def generate_word(wordSize):
+def generate_secret_word(wordSize):
     import random
     return random.choice(dictionary[wordSize])
+
+def generate_public_word(wordSize):
+    publicWord = []
+    for i in range(wordSize):
+        publicWord.append('__' )
+    return publicWord
+
 
 if __name__ == '__main__' :
 
@@ -59,25 +66,40 @@ if __name__ == '__main__' :
     # print a game introduction
     print("Welcome to the Hangman Game!")
     isPlaying = True
-
+    gameRunning = False
     # START MAIN LOOP (OUTER PROGRAM LOOP)
 
     while isPlaying == True:
         import random
+
+        ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         if input() == "":
             wordSize = random.randint(3,12)
         else:
             wordSize = int(input())
         print('The word size is set to ', wordSize)
-        secretWord = generate_word(wordSize)
+        secretWord = generate_secret_word(wordSize)
+        publicWord = generate_public_word(wordSize)
 
+
+        ## LIVES SETUP
         print('Please choose a number of lives [1 – 10, default 5]:')
         if input() == "":
             lives = 5
         else:
             lives = int(input())
         print("You have ",lives," lives")
+
+        ##GAME BEGINS
+        print("Beginning Game...")
+        gameRunning = True
+        while gameRunning == True:
+            lettersChosen = []
+            print("Letters chosen:",lettersChosen)
+            print(publicWord)
+            print("lives:",lives)
+            gameRunning = False
         
         isPlaying = False
 
