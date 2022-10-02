@@ -20,21 +20,17 @@ def import_dictionary (filename) :
     dictionary = {}
     
     max_size = 12
-    try :
-        d = open("dictionary.txt", "r")
-        for x in d:
-            wordLength = len(x.strip())
-            if wordLength not in dictionary:
-                dictionary[wordLength] = [x]
-                print("appending",x,"to",wordLength)
-            else:
-                if wordLength <= 12:
-                    current_values = dictionary[wordLength]
-                    dictionary[wordLength] = current_values.append(x)
-                    print("appending",x,"to",wordLength)
-        
-    except Exception :
-        pass
+   
+    d = open('dictionary.txt', "r")
+    for x in d:
+       wordLength = len(x.strip())
+       print(x.strip(),wordLength)
+       if wordLength in dictionary:
+        currentVal = dictionary[wordLength]
+        currentVal.append(x.strip())
+        dictionary[wordLength] = currentVal
+       else:
+            dictionary[wordLength] = [x.strip()]
     d.close()
     return dictionary
 
@@ -51,24 +47,38 @@ def get_game_options () :
 
 # MAIN
 
+def generate_word(wordSize):
+    import random
+    return random.choice(dictionary[wordSize])
+
 if __name__ == '__main__' :
 
     # make a dictionary from a dictionary file
     dictionary = import_dictionary(dictionary_file)
 
-    # print the dictionary (use only for debugging)
-    print_dictionary(dictionary)    # remove after debugging the dictionary function import_dictionary
-
     # print a game introduction
+    print("Welcome to the Hangman Game!")
+    isPlaying = True
 
     # START MAIN LOOP (OUTER PROGRAM LOOP)
 
+    while isPlaying == True:
+        # print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
+        # wordSize = input()
+        print(generate_word(4))
+        isPlaying = False
+
+
+    
+
     # set up game options (the word size and number of lives)
+    #lenChoice represents length of word
 
     # select a word from a dictionary (according to the game options)
     # use choice() function that selects an item from a list randomly, for example:
     # mylist = ['apple', 'banana', 'orange', 'strawberry']
-    # word = choice(mylist)
+    #wordList = dictionary[lenChoice]
+    # word = choice(wordList )
     
         # START GAME LOOP   (INNER PROGRAM LOOP)
 
