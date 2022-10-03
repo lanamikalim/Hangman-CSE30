@@ -5,7 +5,7 @@
 # input: (write input description)
 # output: (write output description)
 
-from random import choice, random
+import random
 
 dictionary_file = "dictionary.txt"   # make a dictionary.txt in the same folder where hangman.py is located
 
@@ -24,7 +24,6 @@ def import_dictionary (filename) :
     d = open('dictionary.txt', "r")
     for x in d:
        wordLength = len(x.strip())
-       print(x.strip(),wordLength)
        if wordLength in dictionary:
         currentVal = dictionary[wordLength]
         currentVal.append(x.strip())
@@ -48,7 +47,6 @@ def get_game_options () :
 # MAIN
 
 def generate_secret_word(wordSize):
-    import random
     return random.choice(dictionary[wordSize])
 
 def generate_public_word(wordSize):
@@ -61,7 +59,7 @@ def update_public_word(currentWord, secretWord, newLetter):
     for i in range(len(secretWord)):
         if secretWord[i] == newLetter:
             currentWord[i] = newLetter
-    return currentWord
+    print(*currentWord, sep=" ")
 
 
 if __name__ == '__main__' :
@@ -76,7 +74,7 @@ if __name__ == '__main__' :
     # START MAIN LOOP (OUTER PROGRAM LOOP)
 
     while isPlaying == True:
-        import random
+     
 
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
@@ -103,14 +101,14 @@ if __name__ == '__main__' :
         while gameRunning == True:
             lettersChosen = []
             print("Letters chosen:",lettersChosen)
-            print(publicWord)
+            print(*publicWord, sep=" ")
             print("lives:",lives)
 
             inputLetter = input()
             update_public_word(publicWord,secretWord,inputLetter)
             print("secret word is",secretWord)
             print(update_public_word(publicWord,secretWord,inputLetter))
-
+    
             gameRunning = False
         
         isPlaying = False
