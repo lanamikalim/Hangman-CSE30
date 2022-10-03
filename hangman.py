@@ -97,10 +97,11 @@ if __name__ == '__main__' :
 
         ##GAME BEGINS
         print("Beginning Game...")
+        lettersChosen = []
         gameRunning = True
         while gameRunning == True:
-            lettersChosen = []
-            print("Letters chosen:",lettersChosen)
+            
+            print("Letters chosen:", *lettersChosen)
             print(*publicWord, sep=" ")
             print("lives:",lives)
 
