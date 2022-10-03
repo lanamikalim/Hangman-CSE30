@@ -105,11 +105,18 @@ if __name__ == '__main__' :
             print("lives:",lives)
 
             inputLetter = input()
-            update_public_word(publicWord,secretWord,inputLetter)
             print("secret word is",secretWord)
-            print(update_public_word(publicWord,secretWord,inputLetter))
-    
-            gameRunning = False
+
+            ## CHECK LETTER IN WORD
+            if inputLetter in secretWord:
+                print(update_public_word(publicWord,secretWord,inputLetter))
+                lettersChosen.append(inputLetter)
+            else:
+                lives = lives - 1
+                lettersChosen.append(inputLetter)
+
+            if lives == 0:
+                gameRunning = False
         
         isPlaying = False
 
