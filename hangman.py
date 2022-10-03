@@ -130,7 +130,16 @@ if __name__ == '__main__' :
                 print("Congratulations!!! You won! The word is",secretWord.upper(),"!")
                 gameRunning = False
         
-        isPlaying = False
+        print("Would you like to play again [Y/N]?")
+        answer = input()
+        if answer.upper() == "Y":
+            isPlaying = True
+        elif answer.upper() == "N":
+            print("Goodbye!")
+            isPlaying = False
+
+        
+        
 
 
     
