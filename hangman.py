@@ -58,7 +58,7 @@ def generate_public_word(wordSize):
 def update_public_word(currentWord, secretWord, newLetter):
     for i in range(len(secretWord)):
         if secretWord[i] == newLetter:
-            currentWord[i] = newLetter
+            currentWord[i] = newLetter.upper()
     print(*currentWord, sep=" ")
 
 
@@ -107,6 +107,7 @@ if __name__ == '__main__' :
             print("Letters chosen:", *lettersChosen)
             print(*publicWord, sep=" ")
             print("lives:",lives)
+            print("Please choose a new letter > ")
 
             inputLetter = input()
             if inputLetter in lettersChosen:
@@ -117,15 +118,16 @@ if __name__ == '__main__' :
             ## CHECK LETTER IN WORD
             if inputLetter in secretWord:
                 print(update_public_word(publicWord,secretWord,inputLetter))
-                lettersChosen.append(inputLetter)
+                lettersChosen.append(inputLetter.upper())
             else:
                 lives = lives - 1
-                lettersChosen.append(inputLetter)
+                lettersChosen.append(inputLetter.upper())
 
             if lives == 0:
+                print("You lost! The word is",secretWord.upper(),"!")
                 gameRunning = False
             elif '__' not in publicWord:
-                print("Congratulations!!! You won! The word is",secretWord,"!")
+                print("Congratulations!!! You won! The word is",secretWord.upper(),"!")
                 gameRunning = False
         
         isPlaying = False
