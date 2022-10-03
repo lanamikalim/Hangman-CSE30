@@ -109,6 +109,9 @@ if __name__ == '__main__' :
             print("lives:",lives)
 
             inputLetter = input()
+            if inputLetter in lettersChosen:
+                print("You have already chosen this letter")
+                continue
             print("secret word is",secretWord)
 
             ## CHECK LETTER IN WORD
