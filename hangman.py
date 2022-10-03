@@ -62,6 +62,7 @@ def update_public_word(currentWord, secretWord, newLetter):
     print(*currentWord, sep=" ")
 
 
+
 if __name__ == '__main__' :
 
     # make a dictionary from a dictionary file
@@ -78,10 +79,11 @@ if __name__ == '__main__' :
 
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
-        if input() == "":
+        val  = input()
+        if val == "":
             wordSize = random.randint(3,12)
         else:
-            wordSize = int(input())
+            wordSize = int(val)
         print('The word size is set to ', wordSize)
         secretWord = generate_secret_word(wordSize)
         publicWord = generate_public_word(wordSize)
@@ -89,10 +91,11 @@ if __name__ == '__main__' :
 
         ## LIVES SETUP
         print('Please choose a number of lives [1 – 10, default 5]:')
-        if input() == "":
+        val2 = input()
+        if val2 == "":
             lives = 5
         else:
-            lives = int(input())
+            lives = int(val2)
         print("You have ",lives," lives")
 
         ##GAME BEGINS
@@ -117,6 +120,9 @@ if __name__ == '__main__' :
                 lettersChosen.append(inputLetter)
 
             if lives == 0:
+                gameRunning = False
+            elif '__' not in publicWord:
+                print("Congratulations!!! You won! The word is",secretWord,"!")
                 gameRunning = False
         
         isPlaying = False
