@@ -6,7 +6,7 @@
 # output: (write output description)
 
 import random
-from re import X
+
 
 dictionary_file = "dictionary.txt"   # make a dictionary.txt in the same folder where hangman.py is located
 
@@ -49,11 +49,9 @@ def get_game_options () :
 # MAIN
 
 def generate_secret_word(wordSize):
-    return ("t-shirt")
-    # return random.choice(dictionary[wordSize])
+     return random.choice(dictionary[wordSize])
 
 def generate_public_word(wordSize,word):
-    print("wordsize is ",wordSize, 'word is',word)
     publicWord = []
     for i in range(wordSize):
         if word[i] == '-':
@@ -64,6 +62,7 @@ def generate_public_word(wordSize,word):
 
 def update_public_word(currentWord, secretWord, newLetter):
     for i in range(len(secretWord)):
+        print('i is ',i,'secretword is',secretWord,'current at i is',currentWord[i])
         if secretWord[i] == newLetter and secretWord[i] != '-':
             currentWord[i] = newLetter.upper()
     print(*currentWord, sep=" ")
@@ -84,7 +83,7 @@ def updateLives(livesVisualizer):
                 newLives[i+1] = 'X'
                 break
         
-    ''.join(newLives)
+    
     return newLives
 
 
@@ -106,8 +105,8 @@ if __name__ == '__main__' :
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         val  = input()
         validNums = [3,4,5,6,7,8,9,10,11,12]
-        if int(val) not in validNums :
-            print('randomizing')
+        if val == '' or int(val) not in validNums :
+            
             wordSize = random.randint(3,12)
         else:
             wordSize = int(val)
@@ -120,7 +119,7 @@ if __name__ == '__main__' :
         print('Please choose a number of lives [1 – 10, default 5]:')
         val2 = input()
         validLives = [1,2,3,4,5,6,7,8,9,10]
-        if int(val2) not in validLives:
+        if val2 == '' or int(val2) not in validLives:
             lives = 5
         else:
             lives = int(val2)
@@ -135,12 +134,13 @@ if __name__ == '__main__' :
         while gameRunning == True:
             
             print("Letters chosen:", *lettersChosen)
-            print(*publicWord,"lives:",lives,*livesVisualizer)
+            print(*publicWord,"lives:",lives, *livesVisualizer)
 
             print("Please choose a new letter > ")
 
             inputLetter = input()
-            if inputLetter in lettersChosen:
+            print('input letter is ', inputLetter)
+            if inputLetter.upper() in lettersChosen:
                 print("You have already chosen this letter")
                 continue
             print("secret word is",secretWord)
