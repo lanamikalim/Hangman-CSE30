@@ -22,7 +22,7 @@ def import_dictionary (filename) :
     
     max_size = 12
    
-    d = open('dictionary.txt', "r")
+    d = open('dictionary-short.txt', "r")
     for x in d:
        wordLength = len(x.strip())
        if wordLength in dictionary:
@@ -105,10 +105,10 @@ if __name__ == '__main__' :
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         val  = input()
-        lives = 0
+        lives = 5
         validNums = [3,4,5,6,7,8,9,10,11,12]
-       
-        if val == '' or int(val) not in validNums :
+        wordSize = random.randint(3,12)
+        if val == '':
             wordSize = random.randint(3,12)
         elif val.isdigit():
             if val in validNums:
