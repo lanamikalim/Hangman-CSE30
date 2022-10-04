@@ -80,7 +80,7 @@ if __name__ == '__main__' :
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         val  = input()
-        if val == "":
+        if val == "" or val != range(3,12):
             wordSize = random.randint(3,12)
         else:
             wordSize = int(val)
@@ -92,11 +92,12 @@ if __name__ == '__main__' :
         ## LIVES SETUP
         print('Please choose a number of lives [1 – 10, default 5]:')
         val2 = input()
-        if val2 == "":
+        if val2 == ""or val != range(1,10):
             lives = 5
         else:
             lives = int(val2)
         print("You have ",lives," lives")
+       
 
         ##GAME BEGINS
         print("Beginning Game...")
