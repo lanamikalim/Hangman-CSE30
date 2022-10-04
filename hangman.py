@@ -105,12 +105,16 @@ if __name__ == '__main__' :
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         val  = input()
+        lives = 0
         validNums = [3,4,5,6,7,8,9,10,11,12]
+       
         if val == '' or int(val) not in validNums :
-            
             wordSize = random.randint(3,12)
-        else:
-            wordSize = int(val)
+        elif val.isdigit():
+            if val in validNums:
+                wordSize = int(val)
+            else:
+                wordSize = random.randint(3,12)
         print('The word size is set to ', wordSize)
         secretWord = generate_secret_word(wordSize)
         publicWord = generate_public_word(wordSize,secretWord)
@@ -120,10 +124,13 @@ if __name__ == '__main__' :
         print('Please choose a number of lives [1 – 10, default 5]:')
         val2 = input()
         validLives = [1,2,3,4,5,6,7,8,9,10]
-        if val2 == '' or int(val2) not in validLives:
+        if val2 == '':
             lives = 5
-        else:
-            lives = int(val2)
+        elif val2.isdigit():
+            if val2 in validLives:
+                lives = int(val2)
+            else:
+                lives = 5
         print("You have ",lives," lives")
         livesVisualizer = createLivesVisualizer(lives)
         print("lives visualizer is ", livesVisualizer)
