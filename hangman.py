@@ -73,16 +73,17 @@ def createLivesVisualizer(numLives):
         livesVis = livesVis + '0'
     return livesVis
 
-def updateLives(livesVisualizer):
+def updateLives(livesVisualizer,livesLeft):
     newLives = [*livesVisualizer]
+    Xnums = len(livesVisualizer) - livesLeft
     if 'X' not in livesVisualizer:
         newLives[0] = 'X'
     else:   
-        for i in range(len(livesVisualizer)-1):
-            if livesVisualizer[i] == 'X':
-                newLives[i+1] = 'X'
-                break
-        
+        for i in range(len(livesVisualizer)):
+            if Xnums > 0:
+                newLives[i] = 'X'
+                Xnums = Xnums - 1
+            
     
     return newLives
 
@@ -151,7 +152,7 @@ if __name__ == '__main__' :
                 lettersChosen.append(inputLetter.upper())
             else:
                 lives = lives - 1
-                livesVisualizer = updateLives(livesVisualizer)
+                livesVisualizer = updateLives(livesVisualizer,lives)
                 lettersChosen.append(inputLetter.upper())
 
             if lives == 0:
