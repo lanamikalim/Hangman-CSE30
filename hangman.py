@@ -49,17 +49,22 @@ def get_game_options () :
 # MAIN
 
 def generate_secret_word(wordSize):
-    return random.choice(dictionary[wordSize])
+    return ("t-shirt")
+    # return random.choice(dictionary[wordSize])
 
-def generate_public_word(wordSize):
+def generate_public_word(wordSize,word):
+    print("wordsize is ",wordSize, 'word is',word)
     publicWord = []
     for i in range(wordSize):
+        if word[i] == '-':
+            publicWord.append('-')
+            continue
         publicWord.append('__' )
     return publicWord
 
 def update_public_word(currentWord, secretWord, newLetter):
     for i in range(len(secretWord)):
-        if secretWord[i] == newLetter:
+        if secretWord[i] == newLetter and secretWord[i] != '-':
             currentWord[i] = newLetter.upper()
     print(*currentWord, sep=" ")
 
@@ -72,14 +77,11 @@ def createLivesVisualizer(numLives):
 def updateLives(livesVisualizer):
     newLives = [*livesVisualizer]
     if 'X' not in livesVisualizer:
-        print('x not in livesVisualizer')
         newLives[0] = 'X'
     else:   
         for i in range(len(livesVisualizer)-1):
             if livesVisualizer[i] == 'X':
-                print('setting newLives of', i+1,'to X')
                 newLives[i+1] = 'X'
-                print('newLives[i+x] is now',newLives[i+1] )
                 break
         
     ''.join(newLives)
@@ -103,19 +105,22 @@ if __name__ == '__main__' :
         ##WORD LENGTH SETUP
         print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
         val  = input()
-        if val == "" or val != range(3,12):
+        validNums = [3,4,5,6,7,8,9,10,11,12]
+        if int(val) not in validNums :
+            print('randomizing')
             wordSize = random.randint(3,12)
         else:
             wordSize = int(val)
         print('The word size is set to ', wordSize)
         secretWord = generate_secret_word(wordSize)
-        publicWord = generate_public_word(wordSize)
+        publicWord = generate_public_word(wordSize,secretWord)
 
 
         ## LIVES SETUP
         print('Please choose a number of lives [1 – 10, default 5]:')
         val2 = input()
-        if val2 == ""or val != range(1,10):
+        validLives = [1,2,3,4,5,6,7,8,9,10]
+        if int(val2) not in validLives:
             lives = 5
         else:
             lives = int(val2)
