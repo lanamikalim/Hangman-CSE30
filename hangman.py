@@ -6,6 +6,7 @@
 # output: (write output description)
 
 import random
+from re import X
 
 dictionary_file = "dictionary.txt"   # make a dictionary.txt in the same folder where hangman.py is located
 
@@ -44,6 +45,7 @@ def get_game_options () :
     #return (size, lives)
 
 
+
 # MAIN
 
 def generate_secret_word(wordSize):
@@ -61,6 +63,27 @@ def update_public_word(currentWord, secretWord, newLetter):
             currentWord[i] = newLetter.upper()
     print(*currentWord, sep=" ")
 
+def createLivesVisualizer(numLives):
+    livesVis = ''
+    for i in range(lives):
+        livesVis = livesVis + '0'
+    return livesVis
+
+def updateLives(livesVisualizer):
+    newLives = [*livesVisualizer]
+    if 'X' not in livesVisualizer:
+        print('x not in livesVisualizer')
+        newLives[0] = 'X'
+    else:   
+        for i in range(len(livesVisualizer)-1):
+            if livesVisualizer[i] == 'X':
+                print('setting newLives of', i+1,'to X')
+                newLives[i+1] = 'X'
+                print('newLives[i+x] is now',newLives[i+1] )
+                break
+        
+    ''.join(newLives)
+    return newLives
 
 
 if __name__ == '__main__' :
@@ -97,7 +120,8 @@ if __name__ == '__main__' :
         else:
             lives = int(val2)
         print("You have ",lives," lives")
-       
+        livesVisualizer = createLivesVisualizer(lives)
+        print("lives visualizer is ", livesVisualizer)
 
         ##GAME BEGINS
         print("Beginning Game...")
@@ -106,8 +130,8 @@ if __name__ == '__main__' :
         while gameRunning == True:
             
             print("Letters chosen:", *lettersChosen)
-            print(*publicWord, sep=" ")
-            print("lives:",lives)
+            print(*publicWord,"lives:",lives,*livesVisualizer)
+
             print("Please choose a new letter > ")
 
             inputLetter = input()
@@ -122,6 +146,7 @@ if __name__ == '__main__' :
                 lettersChosen.append(inputLetter.upper())
             else:
                 lives = lives - 1
+                livesVisualizer = updateLives(livesVisualizer)
                 lettersChosen.append(inputLetter.upper())
 
             if lives == 0:
