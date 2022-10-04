@@ -62,7 +62,6 @@ def generate_public_word(wordSize,word):
 
 def update_public_word(currentWord, secretWord, newLetter):
     for i in range(len(secretWord)):
-        print('i is ',i,'secretword is',secretWord,'current at i is',currentWord[i])
         if secretWord[i] == newLetter and secretWord[i] != '-':
             currentWord[i] = newLetter.upper()
     print(*currentWord, sep=" ")
@@ -133,7 +132,7 @@ if __name__ == '__main__' :
                 lives = 5
         print("You have ",lives," lives")
         livesVisualizer = createLivesVisualizer(lives)
-        print("lives visualizer is ", livesVisualizer)
+     
 
         ##GAME BEGINS
         print("Beginning Game...")
@@ -151,7 +150,7 @@ if __name__ == '__main__' :
             if inputLetter.upper() in lettersChosen:
                 print("You have already chosen this letter")
                 continue
-            print("secret word is",secretWord)
+        
 
             ## CHECK LETTER IN WORD
             if inputLetter in secretWord:
@@ -183,35 +182,4 @@ if __name__ == '__main__' :
 
     
 
-    # set up game options (the word size and number of lives)
-    #lenChoice represents length of word
-
-    # select a word from a dictionary (according to the game options)
-    # use choice() function that selects an item from a list randomly, for example:
-    # mylist = ['apple', 'banana', 'orange', 'strawberry']
-    #wordList = dictionary[lenChoice]
-    # word = choice(wordList )
-    
-        # START GAME LOOP   (INNER PROGRAM LOOP)
-
-        # format and print the game interface:
-        # Letters chosen: E, S, P                list of chosen letters
-        # __ P P __ E    lives: 4   XOOOO        hidden word and lives
-
-        # ask the user to guess a letter
-
-        # update the list of chosen letters
-
-        # if the letter is correct update the hidden word,
-        # else update the number of lives
-        # and print interactive messages      
-
-        # END GAME LOOP   (INNER PROGRAM LOOP)
-
-        # check if the user guesses the word correctly or lost all lives,
-        # if yes finish the game
-
-    # END MAIN LOOP (OUTER PROGRAM LOOP)
-
-    # ask if the user wants to continue playing, 
-    # if yes start a new game, otherwise terminate the program
+ 
