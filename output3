@@ -9,75 +9,84 @@ Please choose a new letter >
 Letters chosen: E
 __ - __ __ __ __ __ lives: 4 X0000
 Please choose a new letter > 
-__ - __ __ __ __ T
+update public word
+T - __ __ __ __ T
 None
 Letters chosen: E T
-__ - __ __ __ __ T lives: 4 X0000
+T - __ __ __ __ T lives: 4 X0000
 Please choose a new letter > 
 Letters chosen: E T SE
-__ - __ __ __ __ T lives: 3 XX000
+T - __ __ __ __ T lives: 3 XX000
 Please choose a new letter > 
-__ - __ __ __ __ T
+update public word
+T - __ __ __ __ T
 None
 Letters chosen: E T SE -
-__ - __ __ __ __ T lives: 3 XX000
+T - __ __ __ __ T lives: 3 XX000
 Please choose a new letter > 
 Letters chosen: E T SE - ;
-__ - __ __ __ __ T lives: 2 XXX00
+T - __ __ __ __ T lives: 2 XXX00
 Please choose a new letter > 
 Letters chosen: E T SE - ; 5
-__ - __ __ __ __ T lives: 1 XXXX0
+T - __ __ __ __ T lives: 1 XXXX0
 Please choose a new letter > 
 You lost! The word is T-SHIRT !
 Would you like to play again [Y/N]?
 Please choose a size of a word to be guessed [3 - 12, default any size]:
-The word size is set to 4 .
+The word size is set to 12 .
 Please choose a number of lives [1 - 10, default 5]:
 You have  5  lives.
 Letters chosen:
-__ __ __ __ lives: 5 00000
+__ __ __ __ __ __ __ __ __ __ __ __ lives: 5 00000
 Please choose a new letter > 
 Letters chosen: I
-__ __ __ __ lives: 4 X0000
+__ __ __ __ __ __ __ __ __ __ __ __ lives: 4 X0000
 Please choose a new letter > 
-__ __ R __
-None
 Letters chosen: I R
-__ __ R __ lives: 4 X0000
+__ __ __ __ __ __ __ __ __ __ __ __ lives: 3 XX000
 Please choose a new letter > 
+update public word
+__ __ __ __ __ __ __ Y __ __ __ __
+None
 Letters chosen: I R Y
-__ __ R __ lives: 3 XX000
+__ __ __ __ __ __ __ Y __ __ __ __ lives: 3 XX000
 Please choose a new letter > 
 Letters chosen: I R Y 11
-__ __ R __ lives: 2 XXX00
+__ __ __ __ __ __ __ Y __ __ __ __ lives: 2 XXX00
 Please choose a new letter > 
-__ __ R __
+update public word
+__ __ __ __ __ __ __ Y __ __ __ __
 None
 Letters chosen: I R Y 11 
-__ __ R __ lives: 2 XXX00
+__ __ __ __ __ __ __ Y __ __ __ __ lives: 2 XXX00
 Please choose a new letter > 
+update public word
+__ __ E __ __ __ __ Y __ E __ __
+None
 Letters chosen: I R Y 11  E
-__ __ R __ lives: 1 XXXX0
+__ __ E __ __ __ __ Y __ E __ __ lives: 2 XXX00
 Please choose a new letter > 
-You lost! The word is CARD !
+update public word
+__ __ E __ __ __ __ Y __ E __ T
+None
+Letters chosen: I R Y 11  E T
+__ __ E __ __ __ __ Y __ E __ T lives: 2 XXX00
+Please choose a new letter > 
+Letters chosen: I R Y 11  E T S
+__ __ E __ __ __ __ Y __ E __ T lives: 1 XXXX0
+Please choose a new letter > 
+update public word
+__ __ E M __ __ __ Y M E __ T
+None
+Letters chosen: I R Y 11  E T S M
+__ __ E M __ __ __ Y M E __ T lives: 1 XXXX0
+Please choose a new letter > 
+update public word
+__ __ E M __ L __ Y M E __ T
+None
+Letters chosen: I R Y 11  E T S M L
+__ __ E M __ L __ Y M E __ T lives: 1 XXXX0
+Please choose a new letter > 
+You lost! The word is UNEMPLOYMENT !
 Would you like to play again [Y/N]?
-Please choose a size of a word to be guessed [3 - 12, default any size]:
-The word size is set to 6 .
-Please choose a number of lives [1 - 10, default 5]:
-You have  5  lives.
-Letters chosen:
-__ __ __ __ __ __ lives: 5 00000
-Please choose a new letter > 
-Letters chosen: F
-__ __ __ __ __ __ lives: 4 X0000
-Please choose a new letter > 
-__ N __ __ N __
-None
-Letters chosen: F N
-__ N __ __ N __ lives: 4 X0000
-Please choose a new letter > 
-__ N __ __ N __
-None
-Letters chosen: F N 
-__ N __ __ N __ lives: 4 X0000
-Please choose a new letter > 
+Goodbye!

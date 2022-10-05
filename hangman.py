@@ -1,9 +1,9 @@
 # assignment: Hangman(Programming Assignment 1)
 # author: Mika Lim
-# date: Sept 30 2022 - 
+# date: Sept 30 2022 
 # file: hangman.py is a program that simulates a hangman word guessing game
-# input: (write input description)
-# output: (write output description)
+# input: file 'dictionary_short.txt'
+# output: None
 
 from curses.ascii import isdigit
 import random
@@ -11,12 +11,6 @@ import random
 
 dictionary_file = "dictionary.txt"   # make a dictionary.txt in the same folder where hangman.py is located
 
-# write all your functions here
-
-# make a dictionary from a dictionary file ('dictionary.txt', see above)
-# dictionary keys are word sizes (1, 2, 3, 4, …, 12), and values are lists of words
-# for example, dictionary = { 2 : ['Ms', 'ad'], 3 : ['cat', 'dog', 'sun'] }
-# if a word has the size more than 12 letters, put it into the list with the key equal to 12  WHY?
 
 def import_dictionary (filename) :
     dictionary = {}
