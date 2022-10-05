@@ -5,6 +5,7 @@
 # input: (write input description)
 # output: (write output description)
 
+from curses.ascii import isdigit
 import random
 
 
@@ -83,7 +84,7 @@ def updateLives(livesVisualizer,livesLeft):
                 newLives[i] = 'X'
                 Xnums = Xnums - 1
             
-    
+  
     return newLives
 
 
@@ -102,51 +103,48 @@ if __name__ == '__main__' :
      
 
         ##WORD LENGTH SETUP
-        print("Please choose a size of a word to be guessed [3 – 12, default any size]:")
+        print("Please choose a size of a word to be guessed [3 - 12, default any size]:")
         val  = input()
         lives = 5
         validNums = [3,4,5,6,7,8,9,10,11,12]
         wordSize = random.randint(3,12)
-        if val == '':
-            wordSize = random.randint(3,12)
-        elif val.isdigit():
-            if val in validNums:
+        if val.isdigit():
+            if int(val) in validNums:
                 wordSize = int(val)
-            else:
+        else:
                 wordSize = random.randint(3,12)
-        print('The word size is set to ', wordSize)
+        print('The word size is set to',wordSize,'.')
         secretWord = generate_secret_word(wordSize)
         publicWord = generate_public_word(wordSize,secretWord)
 
 
         ## LIVES SETUP
-        print('Please choose a number of lives [1 – 10, default 5]:')
+        print('Please choose a number of lives [1 - 10, default 5]:')
         val2 = input()
         validLives = [1,2,3,4,5,6,7,8,9,10]
         if val2 == '':
             lives = 5
         elif val2.isdigit():
-            if val2 in validLives:
+            if val2.isdigit() in validLives:
                 lives = int(val2)
             else:
                 lives = 5
-        print("You have ",lives," lives")
+        print("You have ",lives," lives.")
         livesVisualizer = createLivesVisualizer(lives)
      
 
         ##GAME BEGINS
-        print("Beginning Game...")
         lettersChosen = []
         gameRunning = True
         while gameRunning == True:
             
             print("Letters chosen:", *lettersChosen)
-            print(*publicWord,"lives:",lives, *livesVisualizer)
+            print(*publicWord,"lives:",lives, end =" ")
+            print( *livesVisualizer,sep='')
 
             print("Please choose a new letter > ")
 
             inputLetter = input()
-            print('input letter is ', inputLetter)
             if inputLetter.upper() in lettersChosen:
                 print("You have already chosen this letter")
                 continue
