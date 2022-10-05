@@ -19,14 +19,17 @@ def import_dictionary (filename) :
    
     d = open('dictionary-short.txt', "r")
     for x in d:
-       wordLength = len(x.strip())
-       if wordLength in dictionary:
-        currentVal = dictionary[wordLength]
-        currentVal.append(x.strip())
-        dictionary[wordLength] = currentVal
-       else:
-            dictionary[wordLength] = [x.strip()]
+       if x != '':
+        wordLength = len(x.strip())
+        if wordLength in dictionary:
+            currentVal = dictionary[wordLength]
+            currentVal.append(x.strip())
+            dictionary[wordLength] = currentVal
+        else:
+                print('adding',x.strip(),'to dictionary at',wordLength)
+                dictionary[wordLength] = [x.strip()]
     d.close()
+    print(dictionary)
     return dictionary
 
 # print the dictionary (use only for debugging)
