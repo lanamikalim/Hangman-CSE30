@@ -41,28 +41,32 @@ def get_game_options ():
     wordSize = random.randint(3,12)
     ##WORD LENGTH SETUP
     print("Please choose a size of a word to be guessed [3 - 12, default any size]:")
-    val  = input()
+    
     lives = 5
     validNums = [3,4,5,6,7,8,9,10,11,12]
     wordSize = random.randint(3,12)
-    if val.isdigit():
-        if int(val) in validNums:
-                wordSize = int(val)
-        else:
-                wordSize = random.randint(3,12)
+    try:
+        val  = input()
+        if val.isdigit():
+            if int(val) in validNums:
+                    wordSize = int(val)
+    except:
+        wordSize = random.randint(3,12)
+    
     print('The word size is set to',wordSize,'.')
 
     ## LIVES SETUP
     print('Please choose a number of lives [1 - 10, default 5]:')
-    val2 = input()
     validLives = [1,2,3,4,5,6,7,8,9,10]
-    if val2 == '':
+    try:
+        val2 = input()
+        if val2.isdigit():
+            if int(val2) in validLives:
+                    lives = int(val2)
+            else:
+                    lives = 5
+    except:
         lives = 5
-    elif val2.isdigit():
-        if val2.isdigit() in validLives:
-                lives = int(val2)
-        else:
-                lives = 5
     print("You have ",lives," lives.")
     
     return(wordSize,lives)
