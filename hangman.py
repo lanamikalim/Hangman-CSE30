@@ -31,17 +31,42 @@ def import_dictionary (filename) :
 
 # print the dictionary (use only for debugging)
 def print_dictionary (dictionary) :
-    max_size = 12
-    pass 
+    for i in dictionary:
+        print(i)
+    return
 
 # get options size and lives from the user, use try-except statements for wrong input
-def get_game_options () :
-    pass
-    #return (size, lives)
+def get_game_options ():
+    lives = 5
+    wordSize = random.randint(3,12)
+    ##WORD LENGTH SETUP
+    print("Please choose a size of a word to be guessed [3 - 12, default any size]:")
+    val  = input()
+    lives = 5
+    validNums = [3,4,5,6,7,8,9,10,11,12]
+    wordSize = random.randint(3,12)
+    if val.isdigit():
+        if int(val) in validNums:
+                wordSize = int(val)
+        else:
+                wordSize = random.randint(3,12)
+    print('The word size is set to',wordSize,'.')
 
+    ## LIVES SETUP
+    print('Please choose a number of lives [1 - 10, default 5]:')
+    val2 = input()
+    validLives = [1,2,3,4,5,6,7,8,9,10]
+    if val2 == '':
+        lives = 5
+    elif val2.isdigit():
+        if val2.isdigit() in validLives:
+                lives = int(val2)
+        else:
+                lives = 5
+    print("You have ",lives," lives.")
+    
+    return(wordSize,lives)
 
-
-# MAIN
 
 def generate_secret_word(wordSize):
      return random.choice(dictionary[wordSize])
@@ -99,34 +124,35 @@ if __name__ == '__main__' :
     while isPlaying == True:
      
 
-        ##WORD LENGTH SETUP
-        print("Please choose a size of a word to be guessed [3 - 12, default any size]:")
-        val  = input()
-        lives = 5
-        validNums = [3,4,5,6,7,8,9,10,11,12]
-        wordSize = random.randint(3,12)
-        if val.isdigit():
-            if int(val) in validNums:
-                wordSize = int(val)
-        else:
-                wordSize = random.randint(3,12)
-        print('The word size is set to',wordSize,'.')
+        # ##WORD LENGTH SETUP
+        # print("Please choose a size of a word to be guessed [3 - 12, default any size]:")
+        # val  = input()
+        # lives = 5
+        # validNums = [3,4,5,6,7,8,9,10,11,12]
+        # wordSize = random.randint(3,12)
+        # if val.isdigit():
+        #     if int(val) in validNums:
+        #         wordSize = int(val)
+        # else:
+        #         wordSize = random.randint(3,12)
+        # print('The word size is set to',wordSize,'.')
+        wordSize,lives = get_game_options()
         secretWord = generate_secret_word(wordSize)
         publicWord = generate_public_word(wordSize,secretWord)
 
 
-        ## LIVES SETUP
-        print('Please choose a number of lives [1 - 10, default 5]:')
-        val2 = input()
-        validLives = [1,2,3,4,5,6,7,8,9,10]
-        if val2 == '':
-            lives = 5
-        elif val2.isdigit():
-            if val2.isdigit() in validLives:
-                lives = int(val2)
-            else:
-                lives = 5
-        print("You have ",lives," lives.")
+        # ## LIVES SETUP
+        # print('Please choose a number of lives [1 - 10, default 5]:')
+        # val2 = input()
+        # validLives = [1,2,3,4,5,6,7,8,9,10]
+        # if val2 == '':
+        #     lives = 5
+        # elif val2.isdigit():
+        #     if val2.isdigit() in validLives:
+        #         lives = int(val2)
+        #     else:
+        #         lives = 5
+        # print("You have ",lives," lives.")
         livesVisualizer = createLivesVisualizer(lives)
      
 
