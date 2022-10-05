@@ -62,6 +62,9 @@ def generate_public_word(wordSize,word):
     return publicWord
 
 def update_public_word(currentWord, secretWord, newLetter):
+    print("update public word")
+    secretWord = secretWord.upper()
+    newLetter = newLetter.upper()
     for i in range(len(secretWord)):
         if secretWord[i] == newLetter and secretWord[i] != '-':
             currentWord[i] = newLetter.upper()
